@@ -18,9 +18,6 @@ func CreateBlock(data string, prevHash []byte) *Block {
 
 	block.Hash = hash[:]
 	block.Nonce = nonce
-	// Uncomment the following line to see the proof of work in action
-	// fmt.Printf("Proof of Work: %s\n", hash)
-	// fmt.Printf("Nonce: %d\n", nonce)
 
 	return block
 }
