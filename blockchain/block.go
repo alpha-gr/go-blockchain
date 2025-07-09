@@ -1,0 +1,40 @@
+package blockchain
+
+type Blockchain struct {
+	Blocks []*Block
+}
+
+type Block struct {
+	Hash     []byte
+	Data     []byte
+	PrevHash []byte
+	Nonce    int
+}
+
+func CreateBlock(data string, prevHash []byte) *Block {
+	block := &Block{[]byte{}, []byte(data), prevHash, 0}
+	pow := NewProof(block)
+	nonce, hash := pow.Run()
+
+	block.Hash = hash[:]
+	block.Nonce = nonce
+	// Uncomment the following line to see the proof of work in action
+	// fmt.Printf("Proof of Work: %s\n", hash)
+	// fmt.Printf("Nonce: %d\n", nonce)
+
+	return block
+}
+
+func (chain *Blockchain) AddBlock(data string) {
+	prevBlock := chain.Blocks[len(chain.Blocks)-1]
+	newBlock := CreateBlock(data, prevBlock.Hash)
+	chain.Blocks = append(chain.Blocks, newBlock)
+}
+
+func Genesis() *Block {
+	return CreateBlock("Genesis Block", []byte{})
+}
+
+func InitBlockchain() *Blockchain {
+	return &Blockchain{[]*Block{Genesis()}}
+}
