@@ -14,7 +14,7 @@ import (
 
 // Difficulty is the number of leading zeros required in the hash.
 // A higher value means more computational work is required to find a valid hash.
-const Difficulty = 5
+const Difficulty = 15
 
 type ProofOfWork struct {
 	Block  *Block
@@ -60,8 +60,8 @@ func (pow *ProofOfWork) Run() (int, []byte) {
 		} else {
 			nonce++ // Increment nonce and try again
 		}
-		fmt.Println()
 	}
+	fmt.Println()
 	return nonce, hash[:]
 }
 
