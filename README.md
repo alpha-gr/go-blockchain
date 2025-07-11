@@ -19,7 +19,6 @@ go-blockchain/
 │   ├── blockchain.go      # Logica della blockchain
 │   ├── proof.go           # Proof of Work
 │   └── transaction.go     # Sistema delle transazioni
-├── wallet/                # Modulo wallet (futuro)
 └── tmp/
     └── blocks/           # Database BadgerDB
 ```
