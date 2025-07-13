@@ -116,7 +116,6 @@ func (pow *ProofOfWork) Run() (int, []byte) {
 **Caratteristiche:**
 - Difficoltà configurabile tramite target
 - SHA-256 come funzione hash
-- Incremento del nonce per trovare hash validi
 
 
 ## Comandi Disponibili
