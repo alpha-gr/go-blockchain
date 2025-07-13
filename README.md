@@ -59,12 +59,10 @@ type ProofOfWork struct {
 
 ```go
 type Block struct {
-    Timestamp    int64
     Hash         []byte
-    PrevHash     []byte
-    Target       []byte
-    Nonce        int
     Transactions []*Transaction
+    PrevHash     []byte
+    Nonce        int
 }
 ```
 
